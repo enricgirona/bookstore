@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./index.css";
+import Header from "./components/Header";
+import Main from "./components/Main";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    books: [],
+    search: ""
+  };
+
+  componentDidMount() {
+    fetch("https://api.myjson.com/bins/zyv02")
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ books: data.books });
+      });
+  }
+
+  changeHandler = props => {
+    this.setState(props);
+  };
+
+  render() {
+    let filteredBooks = this.state.books.filter(book => book.title.toLowerCase().includes(this.state.search));
+    return (
+      <div>
+        <Header changeHandler={this.changeHandler} />
+        <Main books={filteredBooks} />
+      </div>
+    );
+  }
 }
 
 export default App;
