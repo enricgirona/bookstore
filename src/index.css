@@ -160,19 +160,19 @@ a.buttonRead:hover {
 
 @media (max-height: 568px) {
   .nav {
-    height: 7vh;
+    height: 10vh;
   }
   .container {
-    margin-top: 7vh;
+    margin-top: 10vh;
   }
 }
 
 @media (max-height: 568px) and (orientation: landscape) {
   .nav {
-    height: 12vh;
+    height: 15vh;
   }
   .container {
-    margin-top: 12vh;
+    margin-top: 15vh;
   }
 }
 
