@@ -55,11 +55,10 @@ input {
   justify-content: center;
 }
 
-input:focus {
-  outline: -webkit-focus-ring-color auto 0px;
-  outline-color: -webkit-focus-ring-color;
-  outline-style: auto;
-  outline-width: 0px;
+input {
+  -webkit-appearance: none;
+  outline: none;
+  outline-width: 0;
 }
 
 .logo {
@@ -162,6 +161,18 @@ a.buttonRead:hover {
 @media (max-height: 568px) {
   .nav {
     height: 7vh;
+  }
+  .container {
+    margin-top: 7vh;
+  }
+}
+
+@media (max-height: 568px) and (orientation: landscape) {
+  .nav {
+    height: 12vh;
+  }
+  .container {
+    margin-top: 12vh;
   }
 }
 
